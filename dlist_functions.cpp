@@ -57,6 +57,59 @@ void writeToFile(dlist *beg, string place){
         if (cur!=NULL) cur= cur->next;
         if (cur==NULL) break;
     }
+    outp.close();
 };
 
 
+void createList(dlist *a, dlist *b, dlist *res){
+    dlist *cur1, *cur2, *curres;
+    cur1 =a;
+    cur2 =b;
+    curres = res;
+    while ((cur1!=NULL)||(cur2!=NULL)){
+        int a, b;
+        if((cur1!=NULL)&&(cur2!=NULL)){
+            dlist *newnex = new dlist;
+            a = cur1->d;
+            b = cur2->d;
+            if (a<b) {
+                curres->d=a;
+                cur1=cur1->next;
+                curres->next = newnex;
+                curres =newnex;
+            }
+            if (a>b) {
+                curres->d=b;
+                cur2=cur2->next;
+                curres->next = newnex;
+                curres =newnex;
+            }
+        }
+        else{
+            if(cur1!=NULL){
+                dlist *newnex = new dlist;
+                curres->d=cur1->d;
+                cur1=cur1->next;
+                curres->next = newnex;
+                curres =newnex;
+            }
+            if(cur2!=NULL){
+                dlist *newnex = new dlist;
+                curres->d=cur2->d;
+                cur2=cur2->next;
+                curres->next = newnex;
+                curres =newnex;
+                
+            }
+        }
+    }
+};
+
+void mChange(dlist *a, dlist *b, dlist *res){
+    
+    
+    
+    
+    
+    
+};

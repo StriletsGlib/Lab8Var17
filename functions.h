@@ -21,3 +21,5 @@ void write(dlist *beg);
 dlist* readFile(string);
 void readCin(dlist *beg);
 void writeToFile(dlist *beg, string place ="outp.txt");
+void createList(dlist *a, dlist *b, dlist *res);
+void mChange(dlist *a, dlist *b, dlist *res);
