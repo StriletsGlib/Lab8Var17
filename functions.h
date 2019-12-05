@@ -16,12 +16,12 @@ void listOfCommands();
 
 void listOfCommands();
 
-dlist* generate(int maxn, double max, int point);
+void generate(int maxn, double max, int point);
 void writeToFile(string);
 void write(dlist *beg);
-dlist* readFile(string);
+void readFile(string);
 void readCin(dlist *beg);
 void writeToFile(dlist *beg, string place ="outp.txt");
 void createList(dlist *a, dlist *b, dlist *res);
-void mChange(dlist *a, dlist *b, dlist *res);
 void readFile(dlist *beg, string str);
+void mChange(dlist *beg1, dlist *beg2);

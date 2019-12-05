@@ -55,6 +55,10 @@ int main(){
             cin>>z;
             readFile(&result,z);
         }
+        if (command=="mCharge"){
+            mChange(&first, &second);
+            writeToFile(&first, "output1.txt");
+        }
         cin>>command;
     }
     
