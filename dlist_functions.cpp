@@ -105,17 +105,53 @@ void createList(dlist *beg1, dlist *beg2, dlist *res){
     }
 };
 
-void mChange(dlist *a, dlist *b, dlist *res){
+void mChange(dlist *beg1, dlist *beg2){
+    dlist *cur1, *cur2, *curres;
+    cur1 =beg1;
+    cur2 =beg2;
+    curres = cur1;
+    while ((cur1!=NULL)||(cur2!=NULL)){
+        int a, b;
+        if((cur1!=NULL)&&(cur2!=NULL)){
+            dlist *newnex = new dlist;
+            a = cur1->d;
+            b = cur2->d;
+            if (a<b) {
+                curres->d=a;
+                cur1=cur1->next;
+                curres->next = newnex;
+                curres =newnex;
+            }
+            if (a>b) {
+                curres->d=b;
+                cur2=cur2->next;
+                curres->next = newnex;
+                curres =newnex;
+            }
+        }
+        else{
+            if(cur1!=NULL){
+                dlist *newnex = new dlist;
+                curres->d=beg1->d;
+                cur1=cur1->next;
+                curres->next = newnex;
+                curres =newnex;
+            }
+            if(cur2!=NULL){
+                dlist *newnex = new dlist;
+                curres->d=beg2->d;
+                cur2=cur2->next;
+                curres->next = newnex;
+                curres =newnex;
+                
+            }
+        }
+    }
     
     
     
     
-    
-    
-};
-
-
-
+}
 void readFile(dlist *beg, string str){
     dlist *cur;
     cur = beg;
