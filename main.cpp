@@ -16,8 +16,10 @@ int main(){
     while(command !="end"){
         if (command=="read1c") readCin(&first);
         if (command=="read2c") readCin(&second);
+        if (command=="readrc") readCin(&result);
         if (command=="write1s") write(&first);
         if (command=="write2s") write(&second);
+        if (command=="writers") write(&result);
         if (command=="write1f") {
             cout<<"Write name of the file to where should list be written"<<endl;
             string z;
@@ -35,6 +37,24 @@ int main(){
             writeToFile(&result, "output1.txt");
         }
         if (command=="help") listOfCommands();
+        if (command=="read1F"){
+            cout<<"Write name of the file to where should list be read from"<<endl;
+            string z;
+            cin>>z;
+            readFile(&first,z);
+        }
+        if (command=="read2F"){
+            cout<<"Write name of the file to where should list be read from"<<endl;
+            string z;
+            cin>>z;
+            readFile(&second,z);
+        }
+        if (command=="readResF"){
+            cout<<"Write name of the file to where should list be read from"<<endl;
+            string z;
+            cin>>z;
+            readFile(&result,z);
+        }
         cin>>command;
     }
     

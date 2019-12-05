@@ -1,3 +1,4 @@
+//functions.h
 #include <iostream>
 struct dlist {
     double d;
@@ -23,3 +24,4 @@ void readCin(dlist *beg);
 void writeToFile(dlist *beg, string place ="outp.txt");
 void createList(dlist *a, dlist *b, dlist *res);
 void mChange(dlist *a, dlist *b, dlist *res);
+void readFile(dlist *beg, string str);

@@ -61,10 +61,10 @@ void writeToFile(dlist *beg, string place){
 };
 
 
-void createList(dlist *a, dlist *b, dlist *res){
+void createList(dlist *beg1, dlist *beg2, dlist *res){
     dlist *cur1, *cur2, *curres;
-    cur1 =a;
-    cur2 =b;
+    cur1 =beg1;
+    cur2 =beg2;
     curres = res;
     while ((cur1!=NULL)||(cur2!=NULL)){
         int a, b;
@@ -88,14 +88,14 @@ void createList(dlist *a, dlist *b, dlist *res){
         else{
             if(cur1!=NULL){
                 dlist *newnex = new dlist;
-                curres->d=cur1->d;
+                curres->d=beg1->d;
                 cur1=cur1->next;
                 curres->next = newnex;
                 curres =newnex;
             }
             if(cur2!=NULL){
                 dlist *newnex = new dlist;
-                curres->d=cur2->d;
+                curres->d=beg2->d;
                 cur2=cur2->next;
                 curres->next = newnex;
                 curres =newnex;
@@ -113,3 +113,33 @@ void mChange(dlist *a, dlist *b, dlist *res){
     
     
 };
+
+
+
+void readFile(dlist *beg, string str){
+    dlist *cur;
+    cur = beg;
+    string s ="";
+    ifstream inp(str);
+    while (inp.eof()){
+        double get;
+        try{
+            inp>>get;
+            if(cin.fail()) throw 1;
+            //cin>>get;
+            //if (!(cin>>get)) {
+            //cout<<errorMessage<<endl;
+            //    goto fix;
+        }
+        catch(...){
+            cur = NULL;
+            break;
+        }
+        cur->d = get;
+        dlist *newnex = new dlist;
+        //cout<<cur<<endl<<newnex;
+            cur->next = newnex;
+            cur = newnex;
+    }
+    cout<<"End of reading"<<endl;
+}
